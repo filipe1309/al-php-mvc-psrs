@@ -5,3 +5,6 @@ composer require nyholm/psr7
 composer require nyholm/psr7-server
 
 composer require psr/http-server-handler
+
+composer require php-di/php-di
+

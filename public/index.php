@@ -35,9 +35,9 @@ $creator = new ServerRequestCreator(
 $request = $creator->fromGlobals();
 
 $classeControladora = $rotas[$caminho];
-$controlador = new $classeControladora();
+$container = require __DIR__ . '/../config/dependencies.php';
+$controlador = $container->get($classeControladora);
 $resposta = $controlador->handle($request);
-
 
 foreach ($resposta->getHeaders() as $name => $values) {
     foreach ($values as $value) {
