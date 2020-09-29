@@ -36,11 +36,12 @@ $request = $creator->fromGlobals();
 
 $classeControladora = $rotas[$caminho];
 $controlador = new $classeControladora();
-$resposta = $controlador->processaRequisicao($request);
+$resposta = $controlador->handle($request);
+
 
 foreach ($resposta->getHeaders() as $name => $values) {
     foreach ($values as $value) {
-        header(sprintf('%s %s', $name, $value), false);
+        header(sprintf('%s: %s', $name, $value), false);
     }
 }
 
